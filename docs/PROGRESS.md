@@ -33,7 +33,7 @@
 | ORM                  | MyBatis-Plus 3.5.7     | `mybatis-plus-spring-boot3-starter`             |
 | 分布式锁                 | Redisson 3.36.0（M5 引入） |                                                 |
 | 数据库                  | MySQL 8                | WSL Docker，**localhost:3307**（root / sorts_dev） |
-| 缓存                   | Redis 7                | 端口 **6380**（默认端口 +1），WSL Docker                 |
+| 缓存                   | Redis 7（redis-stack）   | 端口 **6379**，WSL Docker（容器化后已从 6380 迁回；见第五·已知限制 2.1） |
 | 消息队列                 | RabbitMQ 3.13          | WSL Docker，5672 / 15672（sorts / sorts_dev）      |
 | 密码加密                 | spring-security-crypto | 只引 crypto，不引整套 Security                         |
 | AI 模型                | **DeepSeek**           | 用户已确认                                           |
@@ -645,7 +645,7 @@ bash scripts/docker.sh clean-legacy  # 清理历史上手动 run 出来的容器
    （Conventional Commits）。本地提交按功能分段完成，推送由维护者执行。
 4. 每个模块必须配套单元测试，与业务代码同步交付。
 5. 中间件全部跑在 WSL Docker 中，Windows 侧用 localhost 访问：
-   MySQL 3307（root/sorts_dev）、Redis 6380、Nacos 8848、RabbitMQ 5672。
+   MySQL 3307（root/sorts_dev）、Redis 6379（redis-stack，口令见 docker/.env）、Nacos 8848、RabbitMQ 5672。
    一键启动：在 WSL 内执行 bash scripts/wsl-middleware.sh start
    新增建表脚本后补执行：bash scripts/wsl-middleware.sh sql
 6. 接口开发前先查 api-spec.json 对齐契约。
