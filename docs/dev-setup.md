@@ -146,7 +146,7 @@ bash scripts/mvn.sh clean test   # 仅跑测试
 
 > **构建命令怎么选**：IDEA 内用 Maven 面板 / `backend/mvnw`；你自己的终端与 WSL / CI 用 `cd backend && ./mvnw clean install`；**受限沙箱内必须用 `bash scripts/mvn.sh`**。
 >
-> ⚠️ **2026-09-16 更正：此前「本机 mvn 已损坏」是误诊。** 本机 `mvn -v` 输出 Apache Maven 3.9.15（`{maven}`），完全正常。真实原因是受限沙箱注入了 `MSYS_NO_PATHCONV=1` 与 `MSYS2_ARG_CONV_EXCL=*`，关闭了 MSYS 路径自动转换，而 Maven 的 `bin/mvn` 是 POSIX sh 脚本，会把 `/c/...` 这类路径直接交给原生 `java.exe` → 报 `ClassNotFoundException: ...classworlds.launcher.Launcher`。`scripts/mvn.sh` 用 `cygpath` 转换路径后交给 java，因此在沙箱内始终可用。详见 [`docs/ide-setup.md`](./ide-setup.md)。
+> ⚠️ **2026-09-16 更正：此前「本机 mvn 已损坏」是误诊。** 本机 `mvn -v` 输出 Apache Maven 3.9.15，完全正常。真实原因是受限沙箱注入了 `MSYS_NO_PATHCONV=1` 与 `MSYS2_ARG_CONV_EXCL=*`，关闭了 MSYS 路径自动转换，而 Maven 的 `bin/mvn` 是 POSIX sh 脚本，会把 `/c/...` 这类路径直接交给原生 `java.exe` → 报 `ClassNotFoundException: ...classworlds.launcher.Launcher`。`scripts/mvn.sh` 用 `cygpath` 转换路径后交给 java，因此在沙箱内始终可用。详见 [`docs/ide-setup.md`](./ide-setup.md)。
 
 ### 3) 启动顺序
 

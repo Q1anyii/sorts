@@ -471,7 +471,7 @@
         <!-- 列表 -->
         <div v-if="parentPlans.length===0" class="empty-state" style="padding:48px 20px;">
           <div class="empty-icon">📌</div>
-          <p>还没有织上主线。把长期目标（如长期目标、项目攻坚）织成主计划，再将每日日程挂载为子计划，让每一天都有迹可循。</p>
+          <p>还没有织上主线。把长期目标（如项目攻坚、阶段目标）织成主计划，再将每日日程挂载为子计划，让每一天都有迹可循。</p>
         </div>
         <div v-else class="plans-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px;">
           <div v-for="p in parentPlans" :key="p.id" class="card plan-card" :style="p.color ? {borderTop:'3px solid ' + p.color} : {}">

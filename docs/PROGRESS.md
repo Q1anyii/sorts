@@ -475,7 +475,7 @@ bash scripts/mvn.sh clean test     # 只跑测试
 
 > **⚠️ 2026-09-16 更正：此前「本机 mvn 已损坏」是误诊。**
 >   
-> 本机 `mvn -v` 输出 `Apache Maven 3.9.15`，位于 `{maven}`，**完全正常**。
+> 本机 `mvn -v` 输出 `Apache Maven 3.9.15`，**完全正常**。
 >   
 > 真实原因是受限沙箱环境给 shell 注入了 `MSYS_NO_PATHCONV=1` 与 `MSYS2_ARG_CONV_EXCL=*`，
 >   
@@ -570,7 +570,7 @@ bash scripts/docker.sh clean-legacy  # 清理历史上手动 run 出来的容器
 ## 八、目录结构现状
 
 ```
-{repo}/
+SORTS(梭子)/
 ├── README.md                # 项目总览、快速开始、端口与约定、常见问题
 ├── api-spec.json            # OpenAPI 契约（开发接口前先查它！）
 ├── 需求分析.docx             # 需求源文档（已忽略入库）
@@ -629,7 +629,7 @@ bash scripts/docker.sh clean-legacy  # 清理历史上手动 run 出来的容器
 ## 九、接续说明（直接复制）
 
 ```
-继续开发「梭子 SORTS」项目（工作区 {repo}）。
+继续开发「梭子 SORTS」项目（工作区 <仓库根>）。
 
 先读这四份文档恢复上下文：
 - docs/PROGRESS.md（进度与续接指南）

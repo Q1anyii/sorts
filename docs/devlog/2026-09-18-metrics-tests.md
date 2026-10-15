@@ -28,7 +28,7 @@
   `RateLimitConfig` 位于 `com.sorts.gateway.config`。
 
 ### 3. 构建环境
-- 本机 WSL 无 JDK；Windows 侧 JDK 22（`{jdk}`）以 `maven.compiler.release=17` 编译，兼容 Java 17 目标。
+- 本机 WSL 无 JDK；Windows 侧 JDK 22以 `maven.compiler.release=17` 编译，兼容 Java 17 目标。
 
 ## 指标达成
 

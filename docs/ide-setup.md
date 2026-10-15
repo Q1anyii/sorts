@@ -1,7 +1,7 @@
 # 梭子 SORTS · IDE 运行手册（IntelliJ IDEA）
 
 > 目标：**clone / 检出后，在 IDEA 里点一下就能跑起来**（Run 按钮直接启动 8080/8081/8082）
-> 适用：IntelliJ IDEA 2025.x（本机已验证 2025.3）
+> 适用：IntelliJ IDEA 2025.x（已验证 2025.3）
 
 ---
 
@@ -10,7 +10,7 @@
 本仓库是 **「容器目录 + Maven 工程在子目录」** 的结构：
 
 ```
-{repo}\            ← 你当前用 IDEA 打开的是这里（不含 pom.xml）
+./            ← 你当前用 IDEA 打开的是这里（不含 pom.xml）
 ├── backend\               ← 真正的 Maven 根工程在这里
 │   ├── pom.xml
 │   ├── sorts-common\
@@ -58,7 +58,7 @@ IDEA 会把它识别为 Maven 多模块工程，`sorts-common / gateway / user /
 
 ### 第 2 步：对齐 JDK 17
 
-IDEA 里已注册的 17 叫 **`ms-17`**（对应 `{jdk}`）。
+IDEA 里已注册的 17 叫 **`ms-17`**（对应 `<本机 JDK 17 路径>`）。
 
 - `File → Project Structure → Project`
   - **SDK**：`ms-17`（17）
@@ -74,7 +74,7 @@ IDEA 里已注册的 17 叫 **`ms-17`**（对应 `{jdk}`）。
 
 | 项 | 建议值 | 说明 |
 |---|---|---|
-| Maven home path | **Bundled (Maven 3)** 或 `{maven}` | 本机两者都可用 |
+| Maven home path | **Bundled (Maven 3)** 或 `<本地 Maven 目录>` | 本机两者都可用 |
 | User settings file | `%USERPROFILE%\.m2\settings.xml`（已配阿里云镜像） | 不配会下载很慢 |
 | Local repository | 默认 `~/.m2/repository` | |
 
@@ -109,7 +109,7 @@ IDEA 里已注册的 17 叫 **`ms-17`**（对应 `{jdk}`）。
 > 如果下拉框里配置的名称带「红色模块名」提示，说明模块名不一致：
 > 打开配置 → 把 **Use classpath of module** 重新选成 `sorts-gateway` / `sorts-user` / `sorts-schedule` 即可。
 
-> 📌 `.run/` 放在**仓库根目录**（对应「方式 A：以 `{repo}` 为项目根」）。
+> 📌 `.run/` 放在**仓库根目录**（对应「方式 A：以 `<仓库根>` 为项目根」）。
 > 如果你改用「方式 B：以 `backend` 为项目根」，IDEA 只认 `<项目根>/.run/`，
 > 把整个 `.run` 目录复制到 `backend/` 下即可（4 个小文件，模块名无需改）。
 

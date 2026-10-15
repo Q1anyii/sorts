@@ -1,6 +1,7 @@
 # ========== Office 临时文件 / 需求源文档 ==========
 ~$*.docx
 需求分析.docx
+docs/ppt-assets
 
 # ========== Maven ==========
 target/
@@ -46,3 +47,4 @@ application-secret.yml
 
 # ========== 本地工具与辅助文件 ==========
 .workbuddy/
+.agent/
